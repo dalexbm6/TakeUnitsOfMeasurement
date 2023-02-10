@@ -13,7 +13,7 @@ function App() {
   },[]);//El arreglo vacio es para que se ejecute una vez 
   return (
     <div>
-    
+      <h1>Actualizo</h1>
     </div>
   );
 }
