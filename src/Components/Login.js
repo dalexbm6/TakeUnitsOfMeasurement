@@ -18,7 +18,7 @@ function Login() {
 
     try {
       
-      const response = await fetch('https://localhost:44346/api/login', {
+      const response = await fetch('https://localhost:44346/api/Auth/Login', {
       method: 'POST',
           headers: {
               'Accept': 'application/json',
@@ -31,8 +31,8 @@ function Login() {
       })
       const content = await response.json();
 
-      localStorage.setItem('token',content.Response.token);
-      setAuth(content.Response);
+      localStorage.setItem('token',content.Response);
+      //if(content.Response !== "")setAuth(true);
       
      //console.log(content.Response)
       reset()
