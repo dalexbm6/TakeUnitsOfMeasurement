@@ -1,8 +1,13 @@
 import './App.css';
 import { useEffect } from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Login from './Components/Login';
-function App() {
+import { AuthProvider } from './context/AuthProvider';
+import AuthLayout from './layouts/AuthLayout';
 
+
+function App() {
+/*
   useEffect(()=>{
    const consultarAPI = async ()=>{
     const url = "https://localhost:44346/api/GetJobs";
@@ -13,11 +18,26 @@ function App() {
    }
 
    consultarAPI();
-  },[]);//El arreglo vacio es para que se ejecute una vez 
+  },[]);//El arreglo vacio es para que se ejecute una vez */
   return (
-    <div>
-      <Login></Login>
-    </div>
+    <>
+    <BrowserRouter>
+    <AuthProvider>
+      <Routes>
+        <Route path='/' element={<AuthLayout/>}>
+          <Route index element={<Login/>}/>
+
+        </Route>
+        <Route path='/'>
+
+        </Route>
+      </Routes>
+      </AuthProvider>
+    </BrowserRouter>
+
+   
+    </>
+   
   );
 }
 
